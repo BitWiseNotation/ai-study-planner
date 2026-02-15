@@ -118,3 +118,32 @@ A development-safe singleton pattern is used to prevent multiple database connec
 **Error Handing:**
 + Returns HTTP 500 on failure
 + Structured JSON error response
+
+
+
+### Authentication Architecture (In Progress)
+
+**Endpoint: Register User**
+
+```
+    POST /api/auth/register
+```
+
+**Purpose:**
+
++ Creates a new user account.
++ Accepts email and password
++ Will enforce validation and hashing
++ Will prevent duplicate registrations
+
+**Status:**
+
++ Endpoint skeleton created
++ Validation and persistence layer pending
+
+**Design Principles:**
+
++ Authentication routes isolated under /api/auth
++ Uses HTTP POST for resource creation
++ Will implement strict input validation
++ Will hash passwords before storage
