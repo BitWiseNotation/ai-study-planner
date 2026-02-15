@@ -49,19 +49,19 @@ The System follows a normalized realtional Structure:
 
 ### Models Overview
 
-#### User
+**User**
 + id (UUID,primary key)
 + email (unique)
 + password (hashed)
 + createdAt (timestamp)
 
-#### Course
+**Course**
 + id (UUID)
 + name
 + color
 + userId (foreign key -> User)
 
-#### Task
+**Task**
 + id (UUID)
 + title
 + dueDate
@@ -69,16 +69,52 @@ The System follows a normalized realtional Structure:
 + type
 + courseId (foreign key -> Course)
 
-### StudySession
+**StudySession**
 + id (UUID)
 + date
 + duration
 + completed
 + taskId(foreign key -> Task)
 
-### Infrastructure 
+**Infrastructure**
 
 - PostgreSQL hosted on Neon
 - Prisma ORM (v7 configuration architecture)
 - Migration-based schema evolution
 - Environment-based database configuration
+
+
+### Backend Infrastructure
+
+#### Prisma Client Singleton
+
+A development-safe singleton pattern is used to prevent multiple database connections during hot reload.
+
+**Key Characteristics:**
++ Prevents connection exhaustion in development 
++ Uses environment-based behavior
++ Enables query logging for debugging
+
+#### API Layer - Test Endpoint
+
+**EndPoint**
+```
+    GET /api/test
+```
+**Purpose:**
++ Verifies database connectivity
++ Confirms Prisma client initialization
++ Ensures Neon integration is functional
+
+**Response Structure:**
+
+```
+    {
+        "success": true,
+        "users": []
+    }
+```
+
+**Error Handing:**
++ Returns HTTP 500 on failure
++ Structured JSON error response
