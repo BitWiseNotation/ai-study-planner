@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Study Planner
 
-## Getting Started
+## Overview
+AI study planner is full-stack  Typescript application designed to intelligently generate optimized study schedule for students based on deadlines and workload distribution.
 
-First, run the development server:
+## Objectives 
+- Demonstrate full-stack engineering capability.
+- Implement relational database modeling.
+- Apply type-safe backend architecture.
+- Develop Produciton level API patterns.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technology Stack 
+- Next.js (App Router)
+- Typescript
+- PostgreSQL
+- Prisma ORM
+- React Query
+- Zod Validation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architecture 
+Client -> Next.js Frontened -> API Routes -> Prisma -> PostgreSQL
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development Log
+Day 1: Project Intialization and repository setup.
