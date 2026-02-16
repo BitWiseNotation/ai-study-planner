@@ -147,3 +147,20 @@ A development-safe singleton pattern is used to prevent multiple database connec
 + Uses HTTP POST for resource creation
 + Will implement strict input validation
 + Will hash passwords before storage
+
+
+**Registration Flow:**
+
++ Parse request body
++ Validate input with Zod
++ Check for duplicate email
++ Hash password using bcrypt
++ Insert user into PostgreSQL
++ Return 201 Created
+
+**Security Measures:**
+
++ Passwords never stored in plaintext
++ Unique email constraint enforced
++ Proper HTTP status codes used
++ Sensitive data excluded from response
