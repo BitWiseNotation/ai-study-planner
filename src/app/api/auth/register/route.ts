@@ -25,18 +25,7 @@ export async function POST(request: Request) {
 
         const {name, email,password} = validation.data;
 
-        //check if user already exists
-
-        const existingUser = await prisma.user.findUnique({
-            where:{email},
-        });
-
-        if (existingUser) {
-            return NextResponse.json(
-                {error: "Email already Registered"},
-                {status: 409}
-            )
-        }
+        
 
         //hash password
         const hashedPassword = await bycrypt.hash(password, 10);
@@ -56,15 +45,22 @@ export async function POST(request: Request) {
             message: "User created Successfully",
             user: {
                 id: user.id,
+                name:user.name,
                 email: user.email,
             },
         },
         {status: 201}
     );
 
-    } catch (error) {
+    } catch (error: any) {
+        if(error.code === "P2002"){
+            return NextResponse.json(
+                {error: "Email Already Regisrtered"},
+                {status: 409}
+            );
+        }
         return NextResponse.json(
-            {error: "Internal Server Error"},     
+            {error:"Internal server error"},
             {status:500}
         );
     }

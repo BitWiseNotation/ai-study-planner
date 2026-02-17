@@ -164,3 +164,17 @@ A development-safe singleton pattern is used to prevent multiple database connec
 + Unique email constraint enforced
 + Proper HTTP status codes used
 + Sensitive data excluded from response
+
+**Registration Endpoint (Final Architecture)**
+
++ No application-level duplicate pre-check
++ Relies on database unique constraint
++ Catches Prisma P2002 error
++ Maps database errors to HTTP 409
++ Ensures strong consistency under concurrency
++ Passwords hashed using bcrypt (10 salt rounds)
+
+**Concurrency Safety:**
+
++ Database-level atomic uniqueness enforcement
++ Race-condition safe under simultaneous requests
